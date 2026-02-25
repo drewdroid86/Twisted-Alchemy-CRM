@@ -1,49 +1,17 @@
-# Twisted Alchemy CRM - Blueprint
+# Project Blueprint
+
+This document outlines the development plan and progress of the Twisted Alchemy CRM application.
 
 ## Overview
 
-This document outlines the plan for integrating the Twisted Alchemy CRM application with Firebase, including project setup, Firebase service integration, and component implementation.
+A simple CRM application built with React and Firebase.
 
-## Current Plan: Implement Login UI
+## Development Plan
 
-### 1. Link to Firebase Project
+### Version 0.1 (Initial Setup)
 
-- **Action:** Set the active Firebase project for the workspace.
-- **Project ID:** `twistedalchemy-crm`
-
-### 2. Create Firebase Configuration
-
-- **Action:** Create a `src/firebase.js` file for Firebase configuration.
-
-### 3. Install Firebase SDK
-
-- **Action:** Install the `firebase` package.
-- **Command:** `npm install firebase`
-
-### 4. Initialize Firebase
-
-- **Action:** Import and initialize the Firebase app in `src/main.jsx`.
-
-### 5. Create Authentication Module
-
--   **Action:** Create a `src/auth.js` file for authentication logic.
-
-### 6. Enable Firebase Authentication
-
--   **Action:** Enable Email/Password and Anonymous authentication.
-
-### 7. Create Firestore Module
-
--   **Action:** Create a `src/db.js` file with CRUD functions.
-
-### 8. Enable Firestore
-
--   **Action:** Initialize Firestore in the Firebase project.
-
-### 9. Refactor Firebase Initialization
-
--   **Action:** Centralize Firebase initialization in `src/firebase.js`.
-
-### 10. Implement Login UI
-
--   **Action:** Update `src/App.jsx` to include a login form, handle user authentication state, and display user information upon login.
+*   [x] Initialize Git repository.
+*   [x] Connect to GitHub repository.
+*   [x] Set up React application with Vite.
+*   [x] Install and configure Firebase.
+*   [ ] Implement basic UI with mock data.

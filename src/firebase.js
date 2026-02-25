@@ -1,21 +1,16 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAFQvCDPG7TEdrawbyj-eylUyz44X_zGBc",
-  authDomain: "twistedalchemy-crm.firebaseapp.com",
-  projectId: "twistedalchemy-crm",
-  storageBucket: "twistedalchemy-crm.appspot.com",
-  messagingSenderId: "203366267658",
-  appId: "1:203366267658:web:eb8a9fec49037920ff58f3",
-  measurementId: "G-GJNSYQ8V3L"
+  apiKey: 'your-api-key',
+  authDomain: 'your-auth-domain',
+  projectId: 'your-project-id',
+  storageBucket: 'your-storage-bucket',
+  messagingSenderId: 'your-messaging-sender-id',
+  appId: 'your-app-id',
 };
 
-// Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export { db };
