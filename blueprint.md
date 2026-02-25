@@ -14,4 +14,4 @@ A simple CRM application built with React and Firebase.
 *   [x] Connect to GitHub repository.
 *   [x] Set up React application with Vite.
 *   [x] Install and configure Firebase.
-*   [ ] Implement basic UI with mock data.
+*   [x] Implement basic UI with mock data.
