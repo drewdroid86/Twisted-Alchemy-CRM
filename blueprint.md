@@ -23,3 +23,9 @@ A simple CRM application built with React and Firebase.
 *   [x] Create an authentication gate to protect the dashboard.
 *   [x] Style the login and dashboard components.
 *   [x] Add global styles.
+
+### Version 0.3 (Security and Configuration)
+
+*   [x] Move Firebase config to environment variables.
+*   [x] Add `.env` to `.gitignore`.
+*   [x] Create `.env.example` file.
