@@ -33,3 +33,10 @@ A simple CRM application built with React and Firebase.
 ### Version 0.4 (Code Cleanup)
 
 *   [x] Correct Firebase imports and exports.
+
+### Version 0.5 (Authentication Gate)
+
+*   [x] Create `src/auth.js` for authentication logic.
+*   [x] Implement authentication gate in `src/App.jsx`.
+*   [x] Add loading spinner, login form, and logged-in view.
+*   [x] Style the authentication gate with the specified color scheme.
