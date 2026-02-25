@@ -15,3 +15,11 @@ A simple CRM application built with React and Firebase.
 *   [x] Set up React application with Vite.
 *   [x] Install and configure Firebase.
 *   [x] Implement basic UI with mock data.
+
+### Version 0.2 (Authentication and UI)
+
+*   [x] Implement Firebase authentication.
+*   [x] Create a login screen.
+*   [x] Create an authentication gate to protect the dashboard.
+*   [x] Style the login and dashboard components.
+*   [x] Add global styles.

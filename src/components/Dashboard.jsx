@@ -1,4 +1,5 @@
 import React from 'react';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const customers = [
@@ -8,7 +9,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div>
+    <div className="dashboard">
       <h1>Customer Relationship Management</h1>
       <table>
         <thead>
