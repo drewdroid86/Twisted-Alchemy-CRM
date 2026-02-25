@@ -29,3 +29,7 @@ A simple CRM application built with React and Firebase.
 *   [x] Move Firebase config to environment variables.
 *   [x] Add `.env` to `.gitignore`.
 *   [x] Create `.env.example` file.
+
+### Version 0.4 (Code Cleanup)
+
+*   [x] Correct Firebase imports and exports.
