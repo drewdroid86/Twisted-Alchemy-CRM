@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { onAuthChange, signIn, logOut } from './auth';
+import { onAuthChange, signIn, createAccount, logOut } from './auth';
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSigningUp, setIsSigningUp] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthChange((user) => {
@@ -22,6 +23,16 @@ const App = () => {
     } catch (error) {
       console.error('Error signing in:', error);
       alert('Error signing in. Please check your credentials.');
+    }
+  };
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      await createAccount(email, password);
+    } catch (error) {
+      console.error('Error creating account:', error);
+      alert('Error creating account. Please try again.');
     }
   };
 
@@ -62,6 +73,13 @@ const App = () => {
       cursor: 'pointer',
       fontWeight: 'bold',
     },
+    secondaryButton: {
+      backgroundColor: 'transparent',
+      color: '#e8a020',
+      textAlign: 'center',
+      cursor: 'pointer',
+      marginTop: '1rem',
+    },
     spinner: {
       border: '4px solid #f0f1f3',
       borderTop: '4px solid #e8a020',
@@ -96,26 +114,55 @@ const App = () => {
   if (!user) {
     return (
       <div style={styles.container}>
-        <form style={styles.form} onSubmit={handleSignIn}>
-          <h2 style={{ textAlign: 'center', color: '#e8a020' }}>Sign In</h2>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            style={styles.input}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={styles.input}
-            required
-          />
-          <button type="submit" style={styles.button}>Sign In</button>
-        </form>
+        {isSigningUp ? (
+          <form style={styles.form} onSubmit={handleSignUp}>
+            <h2 style={{ textAlign: 'center', color: '#e8a020' }}>Create Account</h2>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={styles.input}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={styles.input}
+              required
+            />
+            <button type="submit" style={styles.button}>Create Account</button>
+            <p style={styles.secondaryButton} onClick={() => setIsSigningUp(false)}>
+              Already have an account? Sign In
+            </p>
+          </form>
+        ) : (
+          <form style={styles.form} onSubmit={handleSignIn}>
+            <h2 style={{ textAlign: 'center', color: '#e8a020' }}>Sign In</h2>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={styles.input}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={styles.input}
+              required
+            />
+            <button type="submit" style={styles.button}>Sign In</button>
+            <p style={styles.secondaryButton} onClick={() => setIsSigningUp(true)}>
+              Don't have an account? Create one
+            </p>
+          </form>
+        )}
       </div>
     );
   }
