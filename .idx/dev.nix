@@ -20,9 +20,9 @@
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
         npm-install = "npm i --no-audit --no-progress --timing";
-        # Open editors for the following files by default, if they exist:
-        "default.openFiles" = [ "src/App.tsx" "src/App.ts" "src/App.jsx" "src/App.js" ];
       };
+      # Open editors for the following files by default, if they exist
+      openFiles = [ "src/App.tsx" "src/App.ts" "src/App.jsx" "src/App.js" ];
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
     # Enable previews and customize configuration
