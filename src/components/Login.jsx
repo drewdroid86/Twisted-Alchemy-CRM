@@ -2,6 +2,24 @@ import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import './Login.css';
 
+const getSafeErrorMessage = (error) => {
+  switch (error.code) {
+    case 'auth/invalid-email':
+    case 'auth/user-not-found':
+    case 'auth/wrong-password':
+    case 'auth/invalid-credential':
+      return 'Invalid email or password.';
+    case 'auth/email-already-in-use':
+      return 'An account with this email already exists.';
+    case 'auth/weak-password':
+      return 'Password is too weak.';
+    case 'auth/too-many-requests':
+      return 'Too many failed attempts. Please try again later.';
+    default:
+      return 'An unexpected error occurred. Please try again.';
+  }
+};
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,7 +38,7 @@ const Login = () => {
         await createUserWithEmailAndPassword(auth, email, password);
       }
     } catch (error) {
-      setError(error.message);
+      setError(getSafeErrorMessage(error));
     }
   };
 
