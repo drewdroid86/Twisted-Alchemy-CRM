@@ -1,7 +1,5 @@
-import { getFirestore, collection, doc, getDocs, getDoc, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
-import { app } from "./firebase";
-
-const db = getFirestore(app);
+import { collection, doc, getDocs, getDoc, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db } from "./firebase";
 
 const createCRUD = (collectionName) => {
   const colRef = collection(db, collectionName);
