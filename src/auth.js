@@ -1,7 +1,5 @@
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
-import { app } from './firebase';
-
-const auth = getAuth(app);
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase';
 
 export const onAuthChange = (callback) => {
   return onAuthStateChanged(auth, callback);
