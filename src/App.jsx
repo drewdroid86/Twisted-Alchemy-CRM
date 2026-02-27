@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { onAuthChange, signIn, createAccount, logOut } from './auth';
 
+const getSafeErrorMessage = (error) => {
+  switch (error.code) {
+    case 'auth/invalid-email':
+    case 'auth/user-not-found':
+    case 'auth/wrong-password':
+    case 'auth/invalid-credential':
+      return 'Invalid email or password.';
+    case 'auth/email-already-in-use':
+      return 'An account with this email already exists.';
+    case 'auth/weak-password':
+      return 'Password is too weak.';
+    case 'auth/too-many-requests':
+      return 'Too many failed attempts. Please try again later.';
+    default:
+      return 'An unexpected error occurred. Please try again.';
+  }
+};
+
 const App = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -21,8 +39,7 @@ const App = () => {
     try {
       await signIn(email, password);
     } catch (error) {
-      console.error('Error signing in:', error);
-      alert('Error signing in. Please check your credentials.');
+      alert(getSafeErrorMessage(error));
     }
   };
 
@@ -31,8 +48,7 @@ const App = () => {
     try {
       await createAccount(email, password);
     } catch (error) {
-      console.error('Error creating account:', error);
-      alert('Error creating account. Please try again.');
+      alert(getSafeErrorMessage(error));
     }
   };
 
