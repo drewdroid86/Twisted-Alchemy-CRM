@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { onAuthChange, signIn, createAccount, logOut } from './auth';
+import logger from './logger';
 
 const styles = {
   container: {
@@ -82,7 +83,7 @@ const App = () => {
     try {
       await signIn(email, password);
     } catch (error) {
-      console.error('Error signing in:', error);
+      logger.error('Error signing in:', error);
       alert('Error signing in. Please check your credentials.');
     }
   };
@@ -92,7 +93,7 @@ const App = () => {
     try {
       await createAccount(email, password);
     } catch (error) {
-      console.error('Error creating account:', error);
+      logger.error('Error creating account:', error);
       alert('Error creating account. Please try again.');
     }
   };
