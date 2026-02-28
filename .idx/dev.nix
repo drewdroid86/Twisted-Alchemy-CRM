@@ -12,20 +12,15 @@
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
-      # "vscodevim.vim"
       "google.gemini-cli-vscode-ide-companion"
-      "GitHub.copilot"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
         npm-install = "npm i --no-audit --no-progress --timing";
       };
-      # Open editors for the following files by default, if they exist
-      openFiles = [ "src/App.tsx" "src/App.ts" "src/App.jsx" "src/App.js" ];
-      # To run something each time the workspace is (re)started, use the `onStart` hook
     };
-    # Enable previews and customize configuration
+    # Enable previews and customize their behavior
     previews = {
       enable = true;
       previews = {

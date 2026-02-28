@@ -1,42 +1,37 @@
-# Project Blueprint
-
-This document outlines the development plan and progress of the Twisted Alchemy CRM application.
+# Blueprint for Twisted Alchemy CRM
 
 ## Overview
 
-A simple CRM application built with React and Firebase.
+This document outlines the development of the Twisted Alchemy CRM application, focusing on core features for managing customers and orders for a woodworking business. The application will be built using React and Firebase, leveraging Firebase's authentication and Firestore database for data storage.
 
-## Development Plan
+## Version 0.5 (Initial Setup & Authentication)
 
-### Version 0.1 (Initial Setup)
+### Features:
 
-*   [x] Initialize Git repository.
-*   [x] Connect to GitHub repository.
-*   [x] Set up React application with Vite.
-*   [x] Install and configure Firebase.
-*   [x] Implement basic UI with mock data.
+*   User login and authentication using Firebase Authentication.
+*   Basic user interface for login.
 
-### Version 0.2 (Authentication and UI)
+### Files Modified:
 
-*   [x] Implement Firebase authentication.
-*   [x] Create a login screen.
-*   [x] Create an authentication gate to protect the dashboard.
-*   [x] Style the login and dashboard components.
-*   [x] Add global styles.
+*   `src/App.jsx`: Main application component, handles routing and authentication flow.
+*   `src/components/Login.jsx`: Login form component.
+*   `src/auth.js`: Firebase authentication logic.
 
-### Version 0.3 (Security and Configuration)
+## Version 0.6 (Core CRM Features - Dashboard & Customers)
 
-*   [x] Move Firebase config to environment variables.
-*   [x] Add `.env` to `.gitignore`.
-*   [x] Create `.env.example` file.
+### Features:
 
-### Version 0.4 (Code Cleanup)
+*   **Dashboard Home Screen**: A main landing page after successful login.
+*   **Customers Page**: Functionality to add, view, and edit customer details (name, phone, email, address).
+*   **Firestore Integration**: All customer data will be stored and retrieved from Firestore.
 
-*   [x] Correct Firebase imports and exports.
+### Plan and Steps:
 
-### Version 0.5 (Authentication Gate)
-
-*   [x] Create `src/auth.js` for authentication logic.
-*   [x] Implement authentication gate in `src/App.jsx`.
-*   [x] Add loading spinner, login form, and logged-in view.
-*   [x] Style the authentication gate with the specified color scheme.
+1.  **Dependency Consistency**: Ensure `eslint` versions are consistent in `package.json` and `package-lock.json`.
+2.  **Blueprint Update**: Update `blueprint.md` with details of the new features.
+3.  **Firestore Rules Update**: Modify `firestore.rules` to allow read/write access to `customers` and `orders` collections for authenticated users.
+4.  **Dashboard Component (`src/components/DashboardHome.jsx`)**: Create a new React component for the dashboard.
+5.  **Customers Page Components (`src/pages/Customers.jsx`, `src/components/CustomerForm.jsx`)**: Create components for displaying and managing customer information.
+6.  **App Routing (`src/App.jsx`)**: Implement routing for the new dashboard and customer pages using `react-router-dom`.
+7.  **CSS Styling**: Add basic styling for the new components.
+8.  **Run Sanity Checks**: Execute `npm install`, `npm run lint`, and `npm run build` to verify the application's integrity.
