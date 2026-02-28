@@ -42,6 +42,10 @@ const createCRUD = (collectionName) => {
       return docSnap.exists() ? { id: docSnap.id, ...docSnap.data() } : null;
     },
     create: async (data) => {
+      // Basic validation: ensure data is an object and not null
+      if (!data || typeof data !== 'object') {
+        throw new Error('Invalid data: Must be an object.');
+      }
       const docRef = await addDoc(colRef, data);
       return docRef.id;
     },
